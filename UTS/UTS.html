@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | RAHMANISA AULIA G</title>
+    <!-- Memuat Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Latar Belakang Lebih Lembut */
+            color: #1f2937;
+        }
+        /* Styling untuk tombol navigasi header aktif */
+        .nav-link.active {
+            color: #ffffff;
+            background-color: #059669; /* Hijau Emerald Lebih Gelap */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        /* Styling untuk tab portofolio aktif */
+        .tab-button.active-tab {
+            color: #059669;
+            border-color: #059669;
+            background-color: #f0fdf4;
+            font-weight: 700;
+        }
+        /* Animasi fade in untuk konten baru */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header & Navigasi -->
+    <header class="bg-white shadow-xl sticky top-0 z-20 border-b-4 border-teal-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Nama/Logo -->
+                <div class="flex-shrink-0">
+                    <span class="text-gray-900 text-2xl font-extrabold tracking-tight">RAHMANISA AULIA G <span class="text-teal-600"></span></span>
+                </div>
+                <!-- Tautan Navigasi -->
+                <div class="flex space-x-2 sm:space-x-4">
+                    <button id="nav-home" class="nav-link px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:bg-teal-500 hover:text-white transition duration-300 shadow-md" onclick="showPage('home')">
+                        🏠 HOME
+                    </button>
+                    <button id="nav-about" class="nav-link px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:bg-teal-500 hover:text-white transition duration-300 shadow-md" onclick="showPage('about')">
+                        👤 ABOUT
+                    </button>
+                    <button id="nav-portfolio" class="nav-link px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:bg-teal-500 hover:text-white transition duration-300 shadow-md" onclick="showPage('portfolio')">
+                        💼 PORTOFOLIO
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Konten Utama (Area Dinamis) -->
+    <main id="content-area" class="flex-grow p-4 sm:p-10 max-w-7xl mx-auto w-full"></main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 p-6 mt-12">
+        <div class="max-w-7xl mx-auto text-center text-gray-400 text-sm">
+            &copy; 2025 RAHMANISA AULIA G.
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Manajemen Halaman Tunggal -->
+    <script>
+        // --- Konten Halaman Portofolio (Sub-halaman) ---
+        const portfolioContent = {
+           'poster': `
+                <p class="text-gray-600 mb-6">Kumpulan desain poster, banner, dan materi visual yang dibuat menggunakan Canva dan PicsArt. Ini menunjukkan kemampuan saya dalam tipografi, layout, dan pengolahan warna.</p>
+                <h3 class="col-span-full text-xl font-bold text-gray-700 mt-4 mb-2 border-b pb-1">Karya Akademik & Individu</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Poster 1: Cerdas Berkarya Bijak Bernegara -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-teal-500 p-4">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                            <img src="Cerdas Berkarya Bijak Bernegara by Rahmanisa Aulia G_Pendidikan Teknik Informatika_UNP.png" alt="Poster Cerdas Berkarya" class="h-full w-auto object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">Cerdas Berkarya Bijak Bernegara</h4>
+                        <p class="text-sm text-gray-500 mb-3">by Rahmanisa Aulia G_Pendidikan Teknik Informatika.</p>
+                        <a href="Cerdas Berkarya Bijak Bernegara by Rahmanisa Aulia G_Pendidikan Teknik Informatika_UNP.png" target="_blank" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium text-sm">
+                            Lihat Desain &rarr;
+                        </a>
+                    </div>
+                    <!-- Poster 2: Idul Adha -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-teal-500 p-4">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                            <img src="Idul Adha  Wujud dari Cinta, Pengorbanan, dan Iman by Rahmanisa Aulia G.png" alt="Poster Idul Adha" class="h-full w-auto object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">Idul Adha: Wujud dari Cinta, Pengorbanan, dan Iman</h4>
+                        <p class="text-sm text-gray-500 mb-3">Karya pribadi bertema Hari Raya Idul Adha.</p>
+                        <a href="Idul Adha  Wujud dari Cinta, Pengorbanan, dan Iman by Rahmanisa Aulia G.png" target="_blank" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium text-sm">
+                            Lihat Desain &rarr;
+                        </a>
+                    </div>
+                    <!-- Poster 3: LOESTREA2025 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-teal-500 p-4">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                            <img src="LOESTREA2025_Rahmanisa Aulia G_Universitas Negeri Padang.png" alt="Poster LOESTREA2025" class="h-full w-auto object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">LOESTREA2025_Rahmanisa Aulia G_UNP</h4>
+                        <p class="text-sm text-gray-500 mb-3">Poster Gen Z: The Digital Generation untuk acara LOESTREA.</p>
+                        <a href="LOESTREA2025_Rahmanisa Aulia G_Universitas Negeri Padang.png" target="_blank" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium text-sm">
+                            Lihat Desain &rarr;
+                        </a>
+                    </div>
+                    <!-- Poster 4: PJBL PKN -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-teal-500 p-4">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                            <img src="Poster PjBL PKN.png" alt="Poster PJBL PKN" class="h-full w-auto object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">Poster PJBL PKN</h4>
+                        <p class="text-sm text-gray-500 mb-3">Proyek Poster Pembelajaran Berbasis Proyek (PJBL) untuk mata kuliah PKN.</p>
+                        <a href="Poster PjBL PKN.png" target="_blank" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium text-sm">
+                            Lihat Desain &rarr;
+                        </a>
+                    </div>
+                    
+                    <h3 class="col-span-full text-xl font-bold text-gray-700 mt-8 mb-2 border-b pb-1">Desain PKKMB (Kominfo)</h3>
+                    <!-- Poster 5: Poster Coming Soon PKKMB FT 2025 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-red-500 p-4">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                            <img src="Poster Coming Soon PKKMB FT 2025.png" alt="Poster Coming Soon PKKMB FT 2025" class="h-full w-auto object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">Poster Coming Soon PKKMB FT 2025</h4>
+                        <p class="text-sm text-gray-500 mb-3">Desain poster pengumuman "Coming Soon" untuk kegiatan PKKMB Fakultas Teknik 2025.</p>
+                        <a href="Poster Coming Soon PKKMB FT 2025.png" target="_blank" class="inline-flex items-center text-red-600 hover:text-red-800 font-medium text-sm">
+                            Lihat Desain &rarr;
+                        </a>
+                    </div>
+                    <!-- Poster 6: Poster H-3, H-7 PKKMB FT 2025 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-yellow-500 p-4">
+                    <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                        <img src="Poster H-7,3,2,1.pdf" alt="Poster H-3, H-7 PKKMB FT 2025" class="h-full w-auto object-cover rounded-lg">
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">Poster H-3, H-7 PKKMB FT 2025</h4>
+                    <p class="text-sm text-gray-500 mb-3">Desain poster hitung mundur (countdown) untuk acara PKKMB Fakultas Teknik 2025.</p>
+                    <a href="Poster H-7,3,2,1.pdf" target="_blank" class="inline-flex items-center text-yellow-600 hover:text-yellow-800 font-medium text-sm">
+                        Lihat Desain &rarr;
+                    </a>
+                    </div>
+                    <!-- Poster 7: Live Report Frame Krida FT 2025-->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-red-500 p-4">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                            <img src="Live Report Frame Krida.MP4" alt="Live Report Frame Krida" class="h-full w-auto object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">Live Report Frame Krida</h4>
+                        <p class="text-sm text-gray-500 mb-3">Desain frame untuk live report kegiatan Krida Fakultas Teknik 2025.</p>
+                        <a href="Live Report Frame Krida.MP4" target="_blank" class="inline-flex items-center text-red-600 hover:text-red-800 font-medium text-sm">
+                            Lihat Desain &rarr;
+                        </a>
+                    </div>
+                    <!-- Poster 8: Live Report Frame PKKMB FT 2025 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-yellow-500 p-4">
+                    <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                        <img src="Live Report Frame PKKMB.png" alt="Live Report Frame PKKMB" class="h-full w-auto object-cover rounded-lg">
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">Live Report Frame PKKMB</h4>
+                    <p class="text-sm text-gray-500 mb-3">Desain frame untuk live report kegiatan PKKMB Fakultas Teknik 2025.</p>
+                    <a href="Live Report Frame PKKMB.png" target="_blank" class="inline-flex items-center text-yellow-600 hover:text-yellow-800 font-medium text-sm">
+                        Lihat Desain &rarr;
+                    </a>
+                    </div>
+                    <!-- Poster 9: Undangan PKKMB FT 2025 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-red-500 p-4">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                            <img src="Undangan PKKMB FT 2025.zip" alt="Undangan PKKMB FT 2025" class="h-full w-auto object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">Undangan PKKMB FT 2025</h4>
+                        <p class="text-sm text-gray-500 mb-3">Desain surat undangan resmi untuk kegiatan PKKMB Fakultas Teknik 2025.</p>
+                        <a href="Undangan PKKMB FT 2025.zip" target="_blank" class="inline-flex items-center text-red-600 hover:text-red-800 font-medium text-sm">
+                            Lihat Desain &rarr;
+                        </a>
+                    </div>
+                    <!-- Poster 10: Denah Pintu Masuk -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-yellow-500 p-4">
+                    <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                        <img src="Denah Pintu Masuk.png" alt="Denah Pintu Masuk" class="h-full w-auto object-cover rounded-lg">
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">Denah Pintu Masuk</h4>
+                    <p class="text-sm text-gray-500 mb-3">Desain denah dan visualisasi rute untuk area pintu masuk kegiatan PKKMB Fakultas Teknik 2025.</p>
+                    <a href="Denah Pintu Masuk.png" target="_blank" class="inline-flex items-center text-yellow-600 hover:text-yellow-800 font-medium text-sm">
+                        Lihat Desain &rarr;
+                    </a>
+                    </div>
+                    <!-- Poster 11: Lanyard PKKMB FT UNP 2025 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-red-500 p-4">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                            <img src="Lanyard PKKMB FT UNP 2025.zip" alt="Lanyard PKKMB FT UNP 2025" class="h-full w-auto object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">Lanyard PKKMB FT UNP 2025</h4>
+                        <p class="text-sm text-gray-500 mb-3">Desain visual lanyard (tali ID card) untuk peserta dan panitia PKKMB Fakultas Teknik 2025.</p>
+                        <a href="Lanyard PKKMB FT UNP 2025.zip" target="_blank" class="inline-flex items-center text-red-600 hover:text-red-800 font-medium text-sm">
+                            Lihat Desain &rarr;
+                        </a>
+                    </div>
+                    <!-- Poster 12: Feed Ig Twibbon -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-yellow-500 p-4">
+                    <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                        <img src="Feed Ig Twibbon.png" alt="Feed Ig Twibbon" class="h-full w-auto object-cover rounded-lg">
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">Feed Ig Twibbon</h4>
+                    <p class="text-sm text-gray-500 mb-3">Desain postingan Instagram untuk promosi twibbon resmi kegiatan PKKMB Fakultas Teknik 2025.</p>
+                    <a href="Feed Ig Twibbon.png" target="_blank" class="inline-flex items-center text-yellow-600 hover:text-yellow-800 font-medium text-sm">
+                        Lihat Desain &rarr;
+                    </a>
+                    </div>
+                    <!-- Poster 13: Feed Ig Ketentuan PKKMB FT UNP 2025 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-red-500 p-4">
+                        <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                            <img src="Feed Ig Ketentuan PKKMB FT UNP 2025.zip" alt="Feed Ig Ketentuan PKKMB FT UNP 2025" class="h-full w-auto object-cover rounded-lg">
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">Feed Ig Ketentuan PKKMB FT UNP 2025</h4>
+                        <p class="text-sm text-gray-500 mb-3">Desain konten Instagram yang berisi informasi dan panduan ketentuan PKKMB Fakultas Teknik 2025.</p>
+                        <a href="Feed Ig Ketentuan PKKMB FT UNP 2025.zip" target="_blank" class="inline-flex items-center text-red-600 hover:text-red-800 font-medium text-sm">
+                            Lihat Desain &rarr;
+                        </a>
+                    </div>
+                    <!-- Poster 14: Feed Ig Video Challenge -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-yellow-500 p-4">
+                    <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mb-3 rounded-lg">
+                        <img src="Feed Ig Video Challenge.zip" alt="Feed Ig Video Challenge" class="h-full w-auto object-cover rounded-lg">
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">Feed Ig Video Challenge</h4>
+                    <p class="text-sm text-gray-500 mb-3">Desain postingan Instagram untuk pengumuman lomba/tantangan video (Video Challenge) PKKMB Fakultas Teknik 2025.</p>
+                    <a href="Feed Ig Video Challenge.zip" target="_blank" class="inline-flex items-center text-yellow-600 hover:text-yellow-800 font-medium text-sm">
+                        Lihat Desain &rarr;
+                    </a>
+                    </div>
+                </div>
+            `,
+            'sertifikat': `
+                <p class="text-gray-600 mb-6">Daftar sertifikat dan bukti prestasi, menunjukkan komitmen saya pada keunggulan analitis, akademik, dan kontribusi organisasi.</p>
+                <div class="space-y-4">
+                    <!-- Prestasi 1: ISO 2023 -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-red-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">RAHMANISA AULIA G - SERTIFIKAT TOP 10 ISO-8 TAHUN 2023</p>
+                            <p class="text-sm text-red-600 font-semibold">19/11/2023 | Olympiad</p>
+                        </div>
+                        <a href="RAHMANISA AULIA G - SERTIFIKAT TOP 10 ISO-8 TAHUN 2023.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                     <!-- Prestasi 2: NSC 2024 -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-red-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">RAHMANISA AULIA G - SERTIFIKAT NSC 2024</p>
+                            <p class="text-sm text-red-600 font-semibold">05/02/2024 | Competition</p>
+                        </div>
+                        <a href="RAHMANISA AULIA G - SERTIFIKAT NSC 2024.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Prestasi 3: Sertifikat EXSCO 2023 -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-red-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">RAHMANISA AULIA G - SERTIFIKAT EXSCO 2023</p>
+                            <p class="text-sm text-red-600 font-semibold">23/07/2023 | Olympiad</p>
+                        </div>
+                        <a href="RAHMANISA AULIA G - SERTIFIKAT EXSCO 2023.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Prestasi 4: CRS2024 -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-red-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">CRS2024 2 0169_Rahmanisa Aulia G</p>
+                            <p class="text-sm text-red-600 font-semibold">2024 | Competition</p>
+                        </div>
+                        <a href="CRS2024 2 0169_Rahmanisa Aulia G.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Prestasi 5: Sertifikat Lomba Poster Nasional 2025 oleh HIMA PGSD UNP -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-red-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">Sertifikat Lomba Poster Nasional 2025 oleh HIMA PGSD UNP</p>
+                            <p class="text-sm text-red-600 font-semibold">01/06/2025 | Lomba</p>
+                        </div>
+                        <a href="Sertifikat Lomba Poster Nasional di UNP.png" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Prestasi 6: Sertifikat Lomba Poster Nasional oleh HMP PAI UIN IB 2025 -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-red-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">Sertifikat Lomba Poster Nasional di UIN IB</p>
+                            <p class="text-sm text-red-600 font-semibold">2025| Lomba</p>
+                        </div>
+                        <a href="Sertifikat Lomba Poster Nasional di UIN IB.png" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Prestasi 7: Sertifikat Loekomotif UNP -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-red-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">Sertifikat Loekomotif UNP</p>
+                            <p class="text-sm text-red-600 font-semibold">21/09/025| Lomba</p>
+                        </div>
+                        <a href="Sertifikat Loekomotif UNP.jpg" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Tambahan: ICMTEE 2024-->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-yellow-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">Certificate ICMTEE 2024 - RAHMANISA AULIA G</p>
+                            <p class="text-sm text-yellow-600 font-semibold">31/10/2024 | Conference</p>
+                        </div>
+                        <a href="Certificate ICMTEE 2024 - RAHMANISA AULIA G.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Tambahan: RAHMANISA AULIA G - SERTIFIKAT ISO-8 TAHUN 2023 -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-yellow-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">RAHMANISA AULIA G - SERTIFIKAT ISO-8 TAHUN 2023</p>
+                            <p class="text-sm text-yellow-600 font-semibold">19/11/2023 | Olympiad</p>
+                        </div>
+                        <a href="RAHMANISA AULIA G - SERTIFIKAT ISO-8 TAHUN 2023.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Tambahan: RAHMANISA AULIA G - SERTIFIKAT NSC 2024 -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-yellow-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">RAHMANISA AULIA G - SERTIFIKAT NSC 2024</p>
+                            <p class="text-sm text-yellow-600 font-semibold">05/02/2024 | Competition</p>
+                        </div>
+                        <a href="RAHMANISA AULIA G - SERTIFIKAT NSC 2024.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Tambahan: Rahmanisa Aulia G - Sertifikat Peserta Regional KSR 2021 -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-yellow-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">Rahmanisa Aulia G - Sertifikat Peserta Regional KSR 2021</p>
+                            <p class="text-sm text-yellow-600 font-semibold">26/07/2021 | Kompetisi</p>
+                        </div>
+                        <a href="Rahmanisa Aulia G - Sertifikat Peserta Regional KSR 2021.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                    <!-- Tambahan: Sertifikat Krida FT 2025 - Rahmanisa Aulia g -  Pendidikan Teknik Informatika (S1) -->
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-yellow-600 flex justify-between items-center hover:shadow-lg transition duration-300">
+                        <div>
+                            <p class="text-xl font-bold text-gray-800">Sertifikat Krida FT 2025 - Rahmanisa Aulia g -  Pendidikan Teknik Informatika (S1)</p>
+                            <p class="text-sm text-yellow-600 font-semibold">2025 | Krida</p>
+                        </div>
+                        <a href="Sertifikat Krida FT 2025 - Rahmanisa Aulia g -  Pendidikan Teknik Informatika (S1).pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center text-sm">
+                            Lihat Dokumen
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                        </a>
+                </div>
+            `,
+           'web': `
+                <p class="text-gray-600 mb-6">Beberapa proyek pengembangan web dan aplikasi yang pernah saya kerjakan. Proyek ini menunjukkan pemahaman saya dalam teknologi frontend dan logika pemrograman dasar.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Proyek 1: Gymnastic -->
+                    <div class="bg-white rounded-xl shadow-lg border-t-4 border-teal-600 p-5 hover:shadow-xl transition duration-300">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Web Design: Gymnastic</h4>
+                        <p class="text-gray-600 text-sm mb-3">Proyek desain web statis yang berfokus pada visualisasi dan tata letak untuk situs olahraga/gimnastik.</p>
+                        <p class="text-xs font-semibold text-gray-500 mb-4">Teknologi: HTML, CSS, Desain UI/UX</p>
+                        <a href="Gymnastic.html" target="_blank" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-bold text-sm">
+                            Lihat Proyek Langsung &rarr;
+                        </a>
+                    </div>
+                    <!-- Proyek 2: Project Chapter 4 -->
+                    <div class="bg-white rounded-xl shadow-lg border-t-4 border-purple-600 p-5 hover:shadow-xl transition duration-300">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Web Development: Project Chapter 4</h4>
+                        <p class="text-gray-600 text-sm mb-3">Proyek pengembangan web berdasarkan bab ke-4, kemungkinan fokus pada implementasi konsep pemrograman web dasar.</p>
+                        <p class="text-xs font-semibold text-gray-500 mb-4">Teknologi: HTML, CSS, JavaScript</p>
+                        <a href="Project Chapter 4.html" target="_blank" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-bold text-sm">
+                            Lihat Proyek Langsung &rarr;
+                        </a>
+                    </div>
+                    <!-- Proyek 3: Rowing -->
+                    <div class="bg-white rounded-xl shadow-lg border-t-4 border-red-600 p-5 hover:shadow-xl transition duration-300">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Web Design: Rowing Club</h4>
+                        <p class="text-gray-600 text-sm mb-3">Desain landing page atau website klub dayung (rowing), fokus pada elemen visual yang dinamis dan informasi keanggotaan.</p>
+                        <p class="text-xs font-semibold text-gray-500 mb-4">Teknologi: HTML, CSS Responsif</p>
+                        <a href="Rowing.html" target="_blank" class="inline-flex items-center text-red-600 hover:text-red-800 font-bold text-sm">
+                            Lihat Proyek Langsung &rarr;
+                        </a>
+                    </div>
+                    <!-- Proyek 4: The Parkville Times -->
+                    <div class="bg-white rounded-xl shadow-lg border-t-4 border-blue-600 p-5 hover:shadow-xl transition duration-300">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">The Parkville Times (Web Berita/Blog)</h4>
+                        <p class="text-gray-600 text-sm mb-3">Proyek web yang meniru layout situs berita atau majalah, melatih struktur konten dan tata letak grid.</p>
+                        <p class="text-xs font-semibold text-gray-500 mb-4">Teknologi: HTML Semantik, CSS Layout</p>
+                        <a href="The Parkville Times.html" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-bold text-sm">
+                            Lihat Proyek Langsung &rarr;
+                        </a>
+                    </div>
+                    <!-- Proyek 5: UTS -->
+                    <div class="bg-white rounded-xl shadow-lg border-t-4 border-orange-600 p-5 hover:shadow-xl transition duration-300">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Proyek UTS (Ujian Tengah Semester)</h4>
+                        <p class="text-gray-600 text-sm mb-3">Aplikasi atau website yang dikembangkan sebagai tugas akhir UTS, mencakup berbagai elemen yang dipelajari selama semester tersebut.</p>
+                        <p class="text-xs font-semibold text-gray-500 mb-4">Teknologi: Tergantung Mata Kuliah (misal: PHP/MySQL atau JavaScript)</p>
+                        <a href="UTS.html" target="_blank" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-bold text-sm">
+                            Lihat Proyek Langsung &rarr;
+                        </a>
+                    </div>
+                    <!-- Proyek 6: weather -->
+                    <div class="bg-white rounded-xl shadow-lg border-t-4 border-green-600 p-5 hover:shadow-xl transition duration-300">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Aplikasi Web Cuaca (weather)</h4>
+                        <p class="text-gray-600 text-sm mb-3">Aplikasi untuk menampilkan informasi cuaca, kemungkinan menggunakan API eksternal (jika ini proyek backend/fullstack) atau desain tampilan cuaca (jika frontend).</p>
+                        <p class="text-xs font-semibold text-gray-500 mb-4">Teknologi: HTML, JavaScript (Mungkin API Fetching)</p>
+                        <a href="weather.html" target="_blank" class="inline-flex items-center text-green-600 hover:text-green-800 font-bold text-sm">
+                            Lihat Proyek Langsung &rarr;
+                        </a>
+                    </div>
+                </div>
+            `
+        };
+
+
+        const pages = {
+            home: {
+                title: "Selamat Datang di Portofolio Saya 👋",
+                content: `
+                    <div class="space-y-8 p-6">
+                        <h1 class="text-5xl sm:text-6xl font-extrabold text-gray-900 leading-tight">Halo! Saya <span class="text-teal-600">RAHMANISA AULIA G</span></h1>
+                        <p class="text-xl text-gray-600">
+                            Mahasiswa Semester 3 Prodi Pendidikan Teknik Informatika di Universitas Negeri Padang (UNP).
+                        </p>
+                        <div class="bg-white border-l-8 border-teal-500 text-gray-700 p-6 rounded-xl shadow-lg" role="alert">
+                            <p class="font-extrabold text-2xl mb-2 text-teal-700">Visi & Kekuatan Multidimensi</p>
+                            <p class="text-lg">
+                                Latar belakang saya diperkaya oleh pencapaian luar biasa di bidang analitis meraih <b>"Top 10 pada Olimpiade Kimia Tingkat Internasional 2023" 🏆.</b>
+                                Di sisi organisasi, saat ini saya adalah Anggota Biro HIMANIKA 2025 dan aktif dalam kepanitiaan Elka Cup 2025 Divisi Acara dan PKKMB 2025 Divisi Kominfo. 
+                                Secara kreatif, saya menyalurkan passion visual melalui desain poster dan edit foto menggunakan Canva dan PicsArt, bahkan meraih prestasi di berbagai lomba. 
+                            </p>
+                            <p class="mt-4 font-semibold text-gray-600">
+                                Portofolio ini adalah bukti komitmen saya untuk menggabungkan kecerdasan analitis, pengalaman struktural organisasi, dan skill desain visual.
+                            </p>
+                        </div>
+                        <a href="#about" onclick="showPage('about')" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition duration-300">
+                            Kenali Saya Lebih Jauh &rarr;
+                        </a>
+                    </div>
+                `
+            },
+            about: {
+                title: "Tentang Saya: Biografi Singkat 🌟",
+                content: `
+                    <div class="flex flex-col lg:flex-row gap-10">
+                        <!-- Kolom Kiri: Foto & Kontak -->
+                        <div class="lg:w-1/3 space-y-6 p-6 bg-gray-50 rounded-xl shadow-inner">
+                            <div class="flex justify-center">
+                            <img src="Profile.jpeg"
+                                alt="Foto Profil Rahmanisa Aulia G" 
+                                     class="w-64 h-64 rounded-full object-cover shadow-2xl border-4 border-white transform hover:scale-105 transition duration-500">
+                            </div>
+                            
+                            <h3 class="text-2xl font-extrabold text-gray-900 border-b pb-2 mt-4">Kontak Cepat</h3>
+                            <ul class="text-gray-700 space-y-3 text-lg">
+                                <li>📧 <strong class="text-teal-600">Email:</strong> rahmanisa.aulia06@gmail.com</li>
+                                <li>📱 <strong class="text-teal-600">Kontak:</strong> 082169042386</li>
+                                <!-- Menambahkan Ikon dan Link Instagram -->
+                                <li>
+                                    <!-- Icon Instagram (SVG) -->
+                                    <a href="https://instagram.com/_nis_aul" target="_blank" class="flex items-center text-pink-600 hover:text-pink-800 transition duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                        <strong class="text-teal-600">IG:</strong>  @_nis_aul
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Kolom Kanan: Detail -->
+                        <div class="lg:w-2/3 space-y-10">
+                            <!-- Latar Belakang Pendidikan -->
+                            <section>
+                                <h3 class="text-3xl font-bold text-gray-900 border-b-2 border-teal-300 pb-2 mb-6">Latar Belakang Pendidikan 📚</h3>
+                                <ul class="space-y-5">
+                                    <li class="p-4 bg-white rounded-lg shadow-md border-l-4 border-red-500">
+                                        <p class="font-bold text-xl text-gray-800">Sarjana (S1) 2024 - Sekarang</p>
+                                        <p class="text-lg text-teal-600">Universitas Negeri Padang (UNP)</p>
+                                        <p class="text-sm text-gray-500">Prodi Pendidikan Teknik Informatika</p>
+                                    </li>
+                                    <li class="p-4 bg-white rounded-lg shadow-md border-l-4 border-yellow-500">
+                                        <p class="font-bold text-xl text-gray-800">SMA/MA (2021 - 2024)</p>
+                                        <p class="text-lg text-teal-600">MAN 2 Kota Padang</p>
+                                    </li>
+                                    <li class="p-4 bg-white rounded-lg shadow-md border-l-4 border-green-500">
+                                        <p class="font-bold text-xl text-gray-800">SMP/MTs (2018 - 2021)</p>
+                                        <p class="text-lg text-teal-600">MTsN 6 Kota Padang</p>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <!-- Keahlian & Hobi -->
+                            <section>
+                                <h3 class="text-3xl font-bold text-gray-900 border-b-2 border-teal-300 pb-2 mb-6">Keahlian & Hobi 💡</h3>
+                                <div class="space-y-4">
+                                    <h4 class="text-xl font-semibold text-gray-800">Keahlian Utama:</h4>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="bg-teal-100 text-teal-800 text-base font-semibold px-4 py-2 rounded-full shadow-sm hover:bg-teal-200 transition duration-150">🎨 Editing Foto (PicsArt)</span>
+                                        <span class="bg-blue-100 text-blue-800 text-base font-semibold px-4 py-2 rounded-full shadow-sm hover:bg-blue-200 transition duration-150">🖼️ Desain Poster (Canva)</span>
+                                        <span class="bg-green-100 text-green-800 text-base font-semibold px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition duration-150">📊 Analisis Dasar</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-8">
+                                    <h4 class="text-xl font-semibold text-gray-800">Hobi:</h4>
+                                    <p class="text-gray-600 text-lg mt-2">
+                                        Di waktu luang, saya menyalurkan kreativitas melalui edit foto dan desain di Canva. Hobi ini membantu saya menjaga keseimbangan antara akademis yang analitis dan sisi kreatif saya.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                `
+            },
+            portfolio: {
+                title: "Portofolio & Karya Pilihan 💼",
+                content: `
+                    <div class="mb-6 border-b border-gray-200">
+                        <div class="flex flex-wrap justify-start space-x-2 sm:space-x-4">
+                            <button id="tab-poster" class="tab-button active-tab px-4 py-2 text-sm sm:text-base border-b-2 border-transparent text-gray-600 hover:border-teal-500 hover:text-teal-600 transition duration-300 rounded-t-lg" onclick="showPortfolioTab('poster')">
+                                🖼️ Poster Design
+                            </button>
+                            <button id="tab-sertifikat" class="tab-button px-4 py-2 text-sm sm:text-base border-b-2 border-transparent text-gray-600 hover:border-teal-500 hover:text-teal-600 transition duration-300 rounded-t-lg" onclick="showPortfolioTab('sertifikat')">
+                                🏆 Sertifikat & Prestasi
+                            </button>
+                            <button id="tab-web" class="tab-button px-4 py-2 text-sm sm:text-base border-b-2 border-transparent text-gray-600 hover:border-teal-500 hover:text-teal-600 transition duration-300 rounded-t-lg" onclick="showPortfolioTab('web')">
+                                💻 Web & Project
+                            </button>
+                        </div>
+                    </div>
+                    <div id="portfolio-tab-content" class="animate-fade-in">
+                        <!-- Konten tab akan diisi di sini oleh JavaScript -->
+                    </div>
+                `
+            }
+        };
+
+        const contentArea = document.getElementById('content-area');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function renderPage(pageKey) {
+            const pageData = pages[pageKey];
+            if (!pageData) return;
+
+            // 1. Perbarui Konten Utama dengan animasi fade-in
+            contentArea.innerHTML = `
+                <section class="bg-white p-8 sm:p-10 rounded-3xl shadow-2xl animate-fade-in border-t-8 border-teal-500">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mb-8 pb-4 text-gray-900 border-b-4 border-gray-200">${pageData.title}</h2>
+                    ${pageData.content}
+                </section>
+            `;
+
+            // Jika halaman portofolio, inisialisasi tab
+            if (pageKey === 'portfolio') {
+                showPortfolioTab('poster'); // Default ke tab Poster Design
+            }
+
+            // 2. Perbarui Kelas Navigasi
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.id === `nav-${pageKey}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // 3. Perbarui URL
+            const urlTitle = pageData.title.split(' ')[0] + '-' + pageKey;
+            history.pushState({ page: pageKey }, pageData.title, `#${pageKey}`);
+            document.title = "Portofolio | " + pageData.title.split(' ')[0];
+        }
+
+        /**
+         * Mengubah konten di dalam halaman portofolio berdasarkan tab yang diklik
+         * @param {string} tabKey Kunci tab yang akan ditampilkan ('poster', 'sertifikat', 'web')
+         */
+        function showPortfolioTab(tabKey) {
+            const tabContentArea = document.getElementById('portfolio-tab-content');
+            
+            // 1. Perbarui Konten
+            if (tabContentArea) {
+                // Tambahkan animasi fade-out singkat sebelum fade-in konten baru
+                tabContentArea.classList.remove('animate-fade-in');
+                tabContentArea.innerHTML = portfolioContent[tabKey];
+                setTimeout(() => {
+                    tabContentArea.classList.add('animate-fade-in');
+                }, 10);
+            }
+
+            // 2. Perbarui Tombol Aktif
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active-tab');
+            });
+            const activeBtn = document.getElementById(`tab-${tabKey}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active-tab');
+            }
+        }
+
+        function showPage(pageKey) {
+            renderPage(pageKey);
+        }
+
+        window.onpopstate = (event) => {
+            const hash = window.location.hash.substring(1);
+            const pageKey = hash || 'home';
+            renderPage(pageKey);
+        };
+
+        window.onload = () => {
+            const hash = window.location.hash.substring(1);
+            const initialPage = hash in pages ? hash : 'home';
+            renderPage(initialPage);
+        };
+    </script>
+</body>
+</html>

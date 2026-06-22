@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rowing</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        body 
+        {
+            /* Strategi CSS: Skalakan gambar secara dinamis untuk menutupi seluruh viewport */
+            background-color: #f0f8ff;
+            background-image: url('background water.jpg');
+            background-size: cover; /* Menutupi seluruh viewport */
+            background-position: center bottom; /* Posisikan di tengah */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Latar belakang tetap saat digulir */
+            font-family: 'Times New Roman', Times, serif;
+            color: #000; /* Warna teks gelap */
+            margin: 0;
+            padding: 0;
+            padding-top: 20px;
+        }
+
+        .container 
+        {
+            /* Container untuk menampung konten dan meningkatkan keterbacaan */
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: transparent /* Latar belakang semi-transparan putih untuk keterbacaan */
+            border-radius: 8px;
+        }
+
+        p, .audio-section p 
+        {
+            background-color: transparent
+            color: #000;
+            padding: 0; /* Sedikit lebih banyak padding */
+            border-radius: 0px; /* Sudut sedikit membulat */
+            display: block; /* Agar menempati lebar penuh */
+            margin-top: 8px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            box-shadow: none
+        }
+
+        h1, h2 
+        {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 0.8em;
+            margin-bottom: 0.5em;
+            /* Tambahkan bayangan teks agar menonjol di atas latar belakang */
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); 
+            color: #000; /* Pastikan warna teks hitam seperti gambar asli */
+        }
+
+        h1 
+        {
+            color: #000;
+            padding-bottom: 5px;
+            font-size: 32px; /* Sedikit lebih besar untuk H1 */
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0056b3; 
+        }
+
+        .audio-section 
+        {
+            display: block;
+            margin-bottom: 20px;
+            border: none;
+            padding: 5px 0;
+            background-color: transparent;
+            border-radius: 5px;
+        }
+        audio 
+        {
+            width: 100%; 
+            max-width: 450px; /* Bilah audio sedikit lebih panjang */
+            display: block; /* Agar menempati baris baru */
+            margin-top: 5px; /* Jarak dari teks di atasnya */
+            background-color: #000; /* Latar belakang hitam untuk elemen audio */
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .video-container 
+        {
+            margin-top: 30px;
+            background-color: #000;
+            /* Pastikan kontainer memiliki rasio aspek untuk video responsif */
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Rasio aspek 16:9 (9/16 * 100%) */
+        }
+
+        .video-container iframe 
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>World Rowing Federation</h1>
+
+        <p>This page tells you everything you need to know about rowing. Find a boat. Find a body of water. Put the boat in the water. Row.</p>
+
+        <div class="audio-section">
+            <p><b>This first "Row, Row, Row Your Boat" sound clip starts automatically and plays continuously (unless you pause it):</b></p>
+            <audio controls autoplay loop>
+                <source src="Row Your Boat.mp3" type="audio/mpeg">
+                <source src="Row Your Boat.wav" type="audio/WAV">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="audio-section">
+            <p><b>Try to start this second sound clip between the first clip's "boat" and "gently," so the two clips form a mellifluous harmony that plays continuously:</b></p>
+            <audio controls>
+                <source src="Row Your Boat.mp3" type="audio/mpeg">
+                <source src="Row Your Boat.wav" type="audio/WAV">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <hr>
+
+        <h2>Rowing Video:</h2>
+
+        <div class="video-container">
+            <iframe 
+                src="Row Your Boat.mp4" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                title="Rowing Technique Video">
+            </iframe>
+        </div>
+
+    </div>
+
+</body>
+</html>

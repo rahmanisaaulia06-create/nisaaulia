@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Weather</title>
+    <style>
+        /* Gaya Umum */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Gaya Navigasi Benua */
+        .continent-nav {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .continent-nav a {
+            color: #0000FF;
+            text-decoration: none; /* Menonaktifkan garis bawah */
+            padding: 2px 12px;
+            margin-right: 5px;
+            /* Penting: display: inline-block memungkinkan padding dan latar belakang */
+            display: inline-block;
+            /* Garis pemisah yang ditiru */
+            border-right: 1.5px solid #000;
+        }
+        
+        /* Hapus garis pemisah dari tautan terakhir */
+        .continent-nav a:last-child {
+            border-right: none;
+            padding-left: 8px;
+        }
+
+        /* Efek Hover */
+        .continent-nav a:hover {
+            background-color: silver;
+        }
+
+        /* Tampilan Gambar */
+        .main-image {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .main-image img {
+            width: 800px;
+            max-width: 100%;
+            height: auto;
+            /* Placeholder gambar yang berbeda */
+            border: 1px solid #ccc; 
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Struktur Tipe-Tabel Menggunakan CSS Display Properties */
+
+        /* Kontainer Utama */
+        .weather-data {
+            display: table;
+            width: 800px; /* Batasi lebar untuk meniru tata letak */
+            max-width: 100%;
+            margin: 15px auto 0 auto;
+        }
+
+        /* Baris Benua */
+        .continent-row {
+            display: block;
+        }
+
+        /* Sel Benua */
+        .continent-label {
+            display: table;
+            font-weight: bold;
+            vertical-align: top; /* Posisikan label di bagian atas sel */
+            width: 150px; /* Lebar tetap untuk label benua */
+            padding: 5px 10px 10px 0; /* Padding kanan untuk pemisah */
+            white-space: nowrap; /* Mencegah kata 'Continent:' terpisah */
+        }
+
+        /* Sel Kota */
+        .city-links {
+            display: table;
+            padding: 5px 10px 10px 0;
+        }
+
+        /* Gaya Tautan Kota */
+        .city-links a {
+            display: block; /* Setiap tautan pada baris baru */
+            color: #0000FF; /* Warna tautan default */
+            text-decoration: underline; /* garis bawah untuk tautan kota */
+            margin-bottom: 2px;
+        }
+        
+        .city-links a:hover {
+            color: #990000; /* Warna tautan kota */
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>World Weather</h1>
+
+    <div class="continent-nav">
+        <a href="#asia">Asia</a>  
+        <a href="#europe">Australia</a>  
+        <a href="#south-america">Amerika selatan</a>
+    </div>
+
+    <div class="weather-data">
+        <div class="continent-row" id="asia">
+            <div class="continent-label">Asia:</div>
+            <div class="main-image">
+                <img src="Jakarta, Indonesia.jpg" alt="">
+            </div>
+            <div class="city-links">
+                <a href="https://www.accuweather.com/id/id/jakarta/208298/weather-forecast/208298" target="_blank">Jakarta, Indonesia</a>
+                <a href="https://www.accuweather.com/id/jp/tokyo/262828/weather-forecast/262828" target="_blank">Tokyo, Jepang</a>
+                <a href="https://www.accuweather.com/id/cn/shanghai/106308/weather-forecast/106308" target="_blank">Shanghai, China</a>
+            </div>
+        </div>
+
+        <div class="continent-row" id="australia">
+            <div class="continent-label">Australia:</div>
+             <div class="main-image">
+                <img src="Sydney, Australia.jpg" alt="">
+            </div>
+            <div class="city-links">
+                <a href="https://www.accuweather.com/id/au/sydney/28169/weather-forecast/28169" target="_blank">Sydney, Australia</a>
+                <a href="https://www.accuweather.com/id/au/melbourne/26216/weather-forecast/26216" target="_blank">Melbourn, Australia</a>
+            </div>
+        </div>
+
+        <div class="continent-row" id="south-america">
+            <div class="continent-label">Amerika Selatan:</div>
+            <div class="main-image">
+                <img src="Buenos Aires, Argentina.jpg" alt="">
+            </div>
+            <div class="city-links">
+                <a href="https://www.accuweather.com/id/ar/buenos-aires/7894/weather-forecast/7894" target="_blank">Buenos Aires, Argentina</a>
+                <a href="https://www.accuweather.com/id/pe/lima/264120/weather-forecast/264120" target="_blank">Lima, Peru</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

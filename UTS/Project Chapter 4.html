@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The American Dream</title>
+  <style>
+    .news-box {
+    background-color: white;
+    color: black;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    width: 360px;
+    float: right;         
+    margin-left: 15px; 
+    white-space:nowrap;
+    border: 1px solid black;    
+    }
+    body {
+      font-family: 'Times New Roman', Times, serif, sans-serif;
+      background-color: #f8e6c5;
+      margin: 20x;
+    }
+    header {
+      background-color: #3b2781;
+      color: white;
+      padding: 15px;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    header p {
+      margin: 5px 0 0 0;
+      font-size: 0.9em;
+    }
+    h2 {
+      background-color: #663399;
+      color: white;
+      padding: 5px;
+    }
+    section {
+      margin-bottom: 20px;
+    }
+    figure {
+      margin: 10px 0;
+      text-align: center;
+    }
+    figcaption {
+      font-size: 0.9em;
+      font-style: italic;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin: 5px 0 0 0;
+    }
+    sup {
+      font-size: 0.7em;
+    }
+    .top-row {
+    display: flex;              
+    justify-content: space-between;
+    align-items: flex-start;
+    }
+    .below-box {
+    margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="top-row">
+    <h1>The American Dream</h1>
+    <div class="news-box">
+    <strong>TNN News, Tuesday March 6, 8pm EST</strong><br>
+    Author Robert Strausser presents "Survival of the Wealthiest"
+    </div>
+    </div>
+   
+    <p class="below-box">
+      <strong>Work hard and become wealthy?<br>
+      Maybe so, but work alone might not cut it.
+      The following graphs<sup><a href="#note1">[1]</a></sup> show various paths to prosperity.</strong>
+    </p>
+  </header>
+
+  <article>
+
+    <!-- Section Education -->
+    <section>
+      <h2>Education</h2>
+      <p>
+        More advanced schooling helps. If you can avoid the crushing debt of student loans, all the better.
+        Try to find a major that you're good at and that is good to you.
+      </p>
+      <figure>
+        <img src="education.png" alt="Affect of Education on Retirement Wealth" width="400">
+        <figcaption>Affect of Education on Retirement Wealth</figcaption>
+      </figure>
+    </section>
+
+    <!-- Section Birthright -->
+    <section>
+      <h2>Birthright</h2>
+      <p>
+        For accruing wealth, what's even better than education? Being born wealthy.
+        In the graph below, note how the birthright high enders are able to become more wealthy than
+        the education high enders. So before being born, shop around.
+      </p>
+      <figure>
+        <img src="birthright.png" alt="Affect of Birth Wealth on Retirement Wealth" width="400">
+        <figcaption>Affect of Birth Wealth on Retirement Wealth</figcaption>
+      </figure>
+    </section>
+
+  </article>
+
+  <footer>
+    <p id="note1">
+      1. Although the graphs' data is fabricated, the trends are real.
+      See Lisa Keister's <em>"Getting Rich: America's New Rich and How They Got That Way"</em>
+      and Pew Charitable Trusts' <em>"Economic Mobility Project."</em>
+    </p>
+  </footer>
+
+</body>
+</html>
