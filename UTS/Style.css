@@ -1,0 +1,171 @@
+/* style.css */
+/* Memastikan font Inter dimuat */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* Dasar Body & Warna Konsisten */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f4f8; /* Latar Belakang Lembut */
+    color: #1f2937;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Header & Navigasi */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 4px solid #10b981; /* Teal-500 */
+    padding: 10px 0;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 600;
+    color: #4b5563; /* gray-700 */
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link:hover {
+    background-color: #10b981; /* teal-500 */
+    color: #ffffff;
+}
+
+/* Styling untuk tombol navigasi header aktif (Murni CSS) */
+.nav-link.active {
+    color: #ffffff;
+    background-color: #059669; /* Hijau Emerald Lebih Gelap */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Konten Utama */
+main {
+    max-width: 1280px;
+    margin: 20px auto;
+    padding: 16px;
+    flex-grow: 1;
+}
+
+section {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-top: 8px solid #10b981;
+}
+
+h1, h2 {
+    color: #1f2937;
+    font-weight: 800;
+}
+
+.teal-text {
+    color: #059669;
+}
+
+/* Styling Daftar (About Page) */
+ul, ol {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.highlight-box {
+    border-left: 8px solid #10b981;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Styling Tabel (Portofolio Page) --- */
+.portofolio-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.portofolio-table img {
+    width: 100px;
+
+    height: auto; 
+    
+    display: block; 
+    margin: 0 auto;
+}
+
+.portofolio-table td img {
+    width: 80px; 
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+    border-radius: 4px;
+}
+
+.portofolio-table td a img {
+    width: 80px; 
+    height: auto;
+}
+
+.portofolio-table thead {
+    background-color: #059669;
+    color: #ffffff;
+}
+
+.portofolio-table th {
+    padding: 12px 15px;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+}
+.portofolio-table td {
+    padding: 12px 15px;
+    border: 1px solid #e5e7eb;
+}
+
+.portofolio-table tbody tr:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+.portofolio-table tbody tr:hover {
+    background-color: #d1fae5; /* A subtle hover effect */
+}
+
+/* Colspan styling */
+.colspan-row td {
+    background-color: #ecfdf5 !important;
+    font-weight: 700;
+    text-align: center;
+    color: #047857;
+}
+
+/* --- Styling Float (Chapter 7) --- */
+.float-img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
