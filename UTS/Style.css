@@ -22,14 +22,36 @@ header {
     padding: 10px 0;
 }
 
+@media screen and (max-width: 768px) {
 .nav-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 16px;
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column !important; 
     align-items: center;
-    height: 80px;
+    text-align: center;
+    padding: 15px 10px;
+    gap: 15px;
+}
+
+.logo, .logo span {
+    font-size: 1.2rem !important; 
+    text-align: center;
+}
+
+
+nav {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.container, .main-card, body {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Mencegah web bisa digeser ke kiri/kanan */
 }
 
 .nav-link {
@@ -70,9 +92,18 @@ section {
     border-top: 8px solid #10b981;
 }
 
-h1, h2 {
-    color: #1f2937;
-    font-weight: 800;
+h1 {
+        font-size: 2rem !important;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    p {
+        font-size: 0.95rem !important;
+    }
 }
 
 .teal-text {
